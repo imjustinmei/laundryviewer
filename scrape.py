@@ -71,6 +71,6 @@ if __name__ == '__main__':
 
     while iterations < 240:
         main()
-        iterations += 1
         if iterations < 239:
             time.sleep(60.0 - ((time.monotonic_ns() - start) / (10 ** 9)) % 60.0)
+        iterations += 1
