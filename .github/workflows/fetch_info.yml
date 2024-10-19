@@ -1,0 +1,41 @@
+name: Fetch initial info
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: check for info
+        if: ${{ hashFiles('data/info.csv') != '' }}
+        run: |
+          echo "File exists"
+          exit 1
+
+      - name: set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: install dependencies
+        run: pip install -r requirements.txt
+
+      - name: run script
+        run: |
+          python fetch.py
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "fetch info"
+          git push
