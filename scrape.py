@@ -13,7 +13,11 @@ laundry_path = os.path.join('data', weeks + '.csv')
 def main():
     data = fetch()
 
-    if not data:
+    # no data or faulty response
+    if not data or not 'objects' in data:
+        with open(laundry_path, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['','','','',''])
         return
 
     in_use = []

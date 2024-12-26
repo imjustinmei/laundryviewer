@@ -10,7 +10,7 @@ def fetch():
     endpoint = 'https://www.laundryview.com/api/currentRoomData?school_desc_key=8861&location=415890007&rdm=' + timestamp
 
     try:
-        response = requests.get(endpoint)
+        response = requests.get(endpoint, timeout=5)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
