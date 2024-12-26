@@ -1,11 +1,11 @@
 import csv
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from fetch import fetch
 import time
 
-
-weeks = str((datetime.now() - datetime(2024, 10, 19)).days // 7)
+est = timezone(timedelta(hours=-5.0))
+weeks = str((datetime.now(est) - datetime(2024, 10, 19, tzinfo=est)).days // 7)
 use_path = os.path.join('data', 'use.csv')
 laundry_path = os.path.join('data', weeks + '.csv')
 
