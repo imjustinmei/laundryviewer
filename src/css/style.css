@@ -1,0 +1,42 @@
+body {
+  font-family: "Roboto Mono", serif;
+}
+
+#title {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#dateNav {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  font-size: 2.25em;
+}
+
+.arrow {
+  font-weight: bolder;
+  user-select: none;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.disabled {
+  color: #a6aebf;
+  pointer-events: none;
+}
+
+#container {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+#chart {
+  height: 85vh;
+}
+
+#chartWrapper {
+  width: 140%;
+}

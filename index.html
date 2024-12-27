@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>laundry</title>
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="title">laundryviewer</div>
+    <div id="dateNav">
+      <div id="start" class="arrow disabled jump" data-change="0">&lt;&lt;</div>
+      <div id="back" class="arrow disabled" data-increment="-1">&lt;</div>
+      <div id="date"></div>
+      <div id="forward" class="arrow disabled" data-increment="1">&gt;</div>
+      <div id="end" class="arrow disabled jump" data-change="1">&gt;&gt;</div>
+    </div>
+    <div id="container">
+      <div id="chartWrapper">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.5/dist/chart.umd.min.js"></script>
+    <script src="src/js/fetch.js"></script>
+    <script src="src/js/index.js"></script>
+    <script src="src/js/init.js"></script>
+  </body>
+</html>
