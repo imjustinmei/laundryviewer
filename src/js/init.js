@@ -155,7 +155,7 @@ const initialize = () => {
 };
 
 (async () => {
-  const url = "https://raw.githubusercontent.com/imjustinmei/laundryviewer/refs/heads/main/data/missing.txt";
+  const url = "https://raw.githubusercontent.com/imjustinmei/laundryviewer/refs/heads/main/data/missing.json";
   const response = await fetch(url).catch((err) => console.error(err));
   missing = await response.json();
   maxIndex = missing.reduce((a, c, i) => (c < max ? i : a), 0);
