@@ -159,6 +159,6 @@ const initialize = () => {
   const response = await fetch(url).catch((err) => console.error(err));
   missing = await response.json();
   maxIndex = missing.reduce((a, c, i) => (c < max ? i : a), 0);
-  dataMax = missing[maxIndex] - 1;
+  dataMax = Math.max(max, missing[maxIndex] - 1);
   initialize();
 })();
