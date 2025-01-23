@@ -1,7 +1,7 @@
 let offset = 0;
 let maxIndex = 0;
 let dataMax = 0;
-let missing = [];
+let missing = [57, 93];
 
 const dataset = {};
 const dataWidth = 240;
@@ -159,6 +159,6 @@ const initialize = () => {
   const response = await fetch(url).catch((err) => console.error(err));
   missing = await response.json();
   maxIndex = missing.reduce((a, c, i) => (c < max ? i : a), 0);
-  dataMax = Math.max(max, missing[maxIndex] - 1);
+  dataMax = Math.max(max, missing[maxIndex]) - 1;
   initialize();
 })();
