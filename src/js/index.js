@@ -3,7 +3,7 @@ const toWeek = (day) => {
 };
 
 const toDateString = (date) => {
-  return date.toISOString().split("T")[0];
+  return date.toDateString();
 };
 
 const getSlice = (index) => {
