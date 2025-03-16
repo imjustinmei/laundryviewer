@@ -1,13 +1,13 @@
 let offset = 0;
 let maxIndex = 0;
-let dataMax = 0;
-let missing = [57, 93];
+let missing = [57, 93, 140, 148];
 
 const dataset = {};
 const dataWidth = 240;
 const date = document.getElementById("date");
 const epoch = new Date("2024-10-19T05:00:00Z");
 const max = Math.floor((new Date() - epoch) / 86400000);
+let dataMax = max;
 
 const times = Array.from(
   { length: 1440 },
@@ -155,10 +155,10 @@ const initialize = () => {
 };
 
 (async () => {
-  const url = "https://raw.githubusercontent.com/imjustinmei/laundryviewer/refs/heads/main/data/missing.json";
+  const url = "https://raw.githubusercontent.com/imjustinmei/laundryviewer/refs/heads/main/data/missing.txt";
   const response = await fetch(url).catch((err) => console.error(err));
   missing = await response.json();
   maxIndex = missing.reduce((a, c, i) => (c < max ? i : a), 0);
-  dataMax = Math.max(max, missing[maxIndex] - 1);
+  if (maxIndex % 2 == 0) dataMax = missing[maxIndex] - 1;
   initialize();
 })();
