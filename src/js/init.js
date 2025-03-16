@@ -1,6 +1,6 @@
 let offset = 0;
 let maxIndex = 0;
-let missing = [57, 93, 140, 148];
+let missing = [];
 
 const dataset = {};
 const dataWidth = 240;
